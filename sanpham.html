@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tất Cả Sản Phẩm - QZINH</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">QZINH</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gioithieu.html">Giới Thiệu</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="sanpham.html" id="productDropdown" role="button" data-bs-toggle="dropdown">
+              Sản Phẩm
+            </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item active" href="sanpham.html">Tất Cả Sản Phẩm</a></li>
+                            <li><a class="dropdown-item" href="chitietsanpham.html">Chi Tiết Sản Phẩm</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <a href="giohang.html" class="btn position-relative me-3">
+                        <img src="../images/giohang.jpg" alt="Giỏ hàng" width="24" height="24">
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">
+                        0
+                      </span>
+                    </a>
+                    <a href="dangnhap.html" class="btn btn-outline-dark me-2">Đăng Nhập</a>
+                    <a href="dangky.html" class="btn btn-dark">Đăng Ký</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Danh sách sản phẩm -->
+    <section class="container py-5">
+        <h2 class="mb-4 text-center">Danh Sách Sản Phẩm</h2>
+        <div class="row">
+            <div class="col-md-3 mb-4" data-id="1">
+                <div class="card h-100">
+                    <img src="../images/sp1.jpg" class="card-img-top" alt="Dép Cói">
+                    <div class="card-body">
+                        <h5 class="card-title">Dép cói hoa văn</h5>
+                        <p class="card-text">85.000đ</p>
+                        <a href="chitietsanpham1.html" class="btn btn-outline-dark btn-sm">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4" data-id="2">
+                <div class="card h-100">
+                    <img src="../images/sp2.jpg" class="card-img-top" alt="Đồng hồ rồng">
+                    <div class="card-body">
+                        <h5 class="card-title">Đồng hồ rồng gỗ</h5>
+                        <p class="card-text">500.000đ</p>
+                        <a href="chitietsanpham2.html" class="btn btn-outline-dark btn-sm">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4" data-id="3">
+                <div class="card h-100">
+                    <img src="../images/sp3.jpg" class="card-img-top" alt="Ví vải">
+                    <div class="card-body">
+                        <h5 class="card-title">Ví vải 2 mặt</h5>
+                        <p class="card-text">200.000đ</p>
+                        <a href="chitietsanpham3.html" class="btn btn-outline-dark btn-sm">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4" data-id="4">
+                <div class="card h-100">
+                    <img src="../images/sp4.jpg" class="card-img-top" alt="Bình giữ nhiệt">
+                    <div class="card-body">
+                        <h5 class="card-title">Bình giữ nhiệt gỗ – Khắc logo, hình ảnh, tên, chữ câu chúc theo yêu cầu – Quà tặng sinh nhật</h5>
+                        <p class="card-text">280.000đ</p>
+                        <a href="chitietsanpham.html" class="btn btn-outline-dark btn-sm">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4" data-id="5">
+                <div class="card h-100">
+                    <img src="../images/sp5.webp" class="card-img-top" alt="Túi đeo vai">
+                    <div class="card-body">
+                        <h5 class="card-title">Túi đeo vai dây giấy, Túi cói thủ công thời trang tròn, Túi mây tròn Ví đựng tiền xu tua rua Túi rơm rỗng</h5>
+                        <p class="card-text">90.000đ</p>
+                        <a href="chitietsanpham.html" class="btn btn-outline-dark btn-sm">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4" data-id="6">
+                <div class="card h-100">
+                    <img src="../images/sp6.png" class="card-img-top" alt="Đèn thả">
+                    <div class="card-body">
+                        <h5 class="card-title">Đèn thả mây tre đan nghệ thuật đồng quê mộc mạc</h5>
+                        <p class="card-text">600.000đ</p>
+                        <a href="chitietsanpham.html" class="btn btn-outline-dark btn-sm">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4" data-id="7">
+                <div class="card h-100">
+                    <img src="../images/s7.webp" class="card-img-top" alt="Hộp quà">
+                    <div class="card-body">
+                        <h5 class="card-title">Hộp quà mây tre quà tặng đa năng, đựng quà đựng mỹ phẩm, set giỏ quà ngày lễ tết tặng người thân</h5>
+                        <p class="card-text">156.000đ</p>
+                        <a href="chitietsanpham.html" class="btn btn-outline-dark btn-sm">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4" data-id="8">
+                <div class="card h-100">
+                    <img src="../images/sp8.jpg" class="card-img-top" alt="Gối cổ mèo">
+                    <div class="card-body">
+                        <h5 class="card-title">Gối Cổ Mèo Hoa Lá - Thủ Công Nhồi Bông, Vải In Họa Tiết</h5>
+                        <p class="card-text">210.000đ</p>
+                        <a href="chitietsanpham.html" class="btn btn-outline-dark btn-sm">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Có thể thêm nhiều sản phẩm hơn nếu muốn -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2025 Quà Tặng Thủ Công | Designed by Nhóm Bạn</p>
+        </div>
+    </footer>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
