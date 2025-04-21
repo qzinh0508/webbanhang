@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemap - QZINH</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">QZINH</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gioithieu.html">Giới Thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sanpham.html">Sản Phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
+                </ul>
+                <div id="auth-section" class="d-flex align-items-center"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sitemap Content -->
+    <section class="container py-5">
+        <h2 class="mb-4 text-center">Sơ Đồ Trang</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="index.html">🏠 Trang Chủ</a></li>
+                    <li class="list-group-item"><a href="gioithieu.html">ℹ️ Giới Thiệu</a></li>
+                    <li class="list-group-item"><a href="sanpham.html">🛍️ Tất Cả Sản Phẩm</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="giohang.html">🛒 Giỏ Hàng</a></li>
+                    <li class="list-group-item"><a href="thanhtoan.html">💳 Thanh Toán</a></li>
+                    <li class="list-group-item"><a href="giaohang.html">🚚 Giao Hàng</a></li>
+                    <li class="list-group-item"><a href="dangnhap.html">🔐 Đăng Nhập</a></li>
+                    <li class="list-group-item"><a href="dangky.html">📝 Đăng Ký</a></li>
+                    <li class="list-group-item"><a href="lienhe.html">📞 Liên Hệ</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2025 QZINH | Thiết kế bởi Nguyễn Quốc Vinh</p>
+        </div>
+    </footer>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+
+    <!-- Xử lý đăng nhập -->
+    <script>
+        const username = localStorage.getItem('username');
+        const authSection = document.getElementById('auth-section');
+        if (username) {
+            authSection.innerHTML = `
+        <div class="dropdown">
+          <a class="nav-link dropdown-toggle fw-bold" href="#" id="userDropdown" data-bs-toggle="dropdown">
+            Xin chào ${username}
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Hồ Sơ Của Tôi</a></li>
+            <li><a class="dropdown-item" href="#">Đơn Hàng Của Tôi</a></li>
+            <li><a class="dropdown-item" href="#">Địa Chỉ Của Bạn</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger" href="#" onclick="logout()">Đăng Xuất</a></li>
+          </ul>
+        </div>
+      `;
+        } else {
+            authSection.innerHTML = `
+        <a href="dangnhap.html" class="btn btn-outline-dark me-2">Đăng Nhập</a>
+        <a href="dangky.html" class="btn btn-dark">Đăng Ký</a>
+      `;
+        }
+
+        function logout() {
+            localStorage.removeItem('username');
+            location.reload();
+        }
+    </script>
+</body>
+
+</html>

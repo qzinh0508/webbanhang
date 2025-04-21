@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng Nhập - QZINH</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-light bg-white border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">QZINH</a>
+        </div>
+    </nav>
+
+    <!-- Đăng nhập -->
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+        <div class="card p-4 shadow" style="width: 100%; max-width: 400px;">
+            <h3 class="text-center mb-4">Đăng Nhập</h3>
+            <form>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="nhapemail@gmail.com" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Mật Khẩu:</label>
+                    <input type="password" class="form-control" id="password" placeholder="********" required>
+                </div>
+                <button type="submit" class="btn btn-dark w-100">Đăng Nhập</button>
+                <div class="mt-3 text-center">
+                    <small>Chưa có tài khoản? <a href="dangky.html">Đăng ký</a></small>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelector("form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            const foundUser = users.find(user => user.email === email && user.password === password);
+
+            if (foundUser) {
+                alert("Đăng nhập thành công!");
+                localStorage.setItem("currentUser", JSON.stringify(foundUser));
+                window.location.href = "index.html";
+            } else {
+                alert("Sai email hoặc mật khẩu!");
+            }
+        });
+    </script>
+</body>
+
+</html>

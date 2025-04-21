@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thanh Toán - QZINH</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">QZINH</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sanpham.html">Sản Phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="giohang.html">Giỏ Hàng</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Nội dung thanh toán -->
+    <section class="container py-5">
+        <h2 class="mb-4 text-center">Thông Tin Thanh Toán</h2>
+        <div class="row">
+            <!-- Thông tin giao hàng -->
+            <div class="col-md-6">
+                <form id="checkout-form">
+                    <div class="mb-3">
+                        <label class="form-label">Họ và tên</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Số điện thoại</label>
+                        <input type="tel" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Địa chỉ giao hàng</label>
+                        <textarea class="form-control" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Ghi chú (không bắt buộc)</label>
+                        <textarea class="form-control" rows="2"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Xác Nhận Đặt Hàng</button>
+                </form>
+            </div>
+
+            <!-- Tóm tắt đơn hàng -->
+            <div class="col-md-6">
+                <h4 class="mb-3">Đơn Hàng Của Bạn</h4>
+                <ul class="list-group mb-3" id="order-summary"></ul>
+                <h5 class="text-end mt-3">Tổng cộng: <span id="total-price" class="text-danger">0đ</span></h5>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p>&copy; 2025 QZINH | Quà Tặng Thủ Công</p>
+        </div>
+    </footer>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script>
+        function formatCurrency(number) {
+            return number.toLocaleString("vi-VN") + "đ";
+        }
+
+        function loadOrderSummary() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const orderList = document.getElementById("order-summary");
+            const totalEl = document.getElementById("total-price");
+            let total = 0;
+
+            orderList.innerHTML = "";
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                const li = document.createElement("li");
+                li.className = "list-group-item d-flex justify-content-between align-items-center";
+                li.innerHTML = `
+          <div>
+            <h6 class="my-0">${item.name}</h6>
+            <small class="text-muted">Số lượng: ${item.quantity}</small>
+          </div>
+          <span class="text-danger">${formatCurrency(itemTotal)}</span>
+        `;
+                orderList.appendChild(li);
+            });
+
+            totalEl.textContent = formatCurrency(total);
+        }
+
+        document.getElementById("checkout-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            alert("🎉 Cảm ơn bạn đã đặt hàng! Đơn hàng của bạn sẽ được xử lý sớm.");
+            localStorage.removeItem("cart");
+            window.location.href = "index.html";
+        });
+
+        document.addEventListener("DOMContentLoaded", loadOrderSummary);
+    </script>
+</body>
+
+</html>

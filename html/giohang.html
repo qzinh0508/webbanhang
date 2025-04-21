@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giỏ Hàng - QZINH</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">QZINH</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gioithieu.html">Giới Thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sanpham.html">Sản Phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <a href="giohang.html" class="btn position-relative me-3">
+                        <img src="../images/giohang.jpg" alt="Giỏ hàng" width="24" height="24">
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">0</span>
+                    </a>
+                    <a href="dangnhap.html" class="btn btn-outline-dark me-2">Đăng Nhập</a>
+                    <a href="dangky.html" class="btn btn-dark">Đăng Ký</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Giỏ hàng -->
+    <section class="container py-5">
+        <h2 class="mb-4 text-center">Giỏ Hàng Của Bạn</h2>
+        <div id="cart-items"></div>
+        <div class="text-end mt-4">
+            <h4>Tổng cộng: <span id="total-price" class="text-danger">0đ</span></h4>
+            <div class="text-end mt-4">
+                <a href="thanhtoan.html" class="btn btn-success">Tiến hành thanh toán</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p>&copy; 2025 Quà Tặng Thủ Công | Thiết kế bởi Nguyễn Quốc Vinh</p>
+        </div>
+    </footer>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Cập nhật số lượng sản phẩm trên icon giỏ hàng
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cart-count').innerText = cart.reduce((sum, item) => sum + item.quantity, 0);
+        }
+
+        // Hiển thị giỏ hàng
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const container = document.getElementById('cart-items');
+            const totalPriceEl = document.getElementById('total-price');
+            container.innerHTML = '';
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p class="text-center">Giỏ hàng của bạn đang trống.</p>';
+                totalPriceEl.innerText = '0đ';
+                return;
+            }
+
+            let total = 0;
+            cart.forEach((item, index) => {
+                const subtotal = item.price * item.quantity;
+                total += subtotal;
+
+                const row = `
+                    <div class="card mb-3">
+                        <div class="row g-0 align-items-center">
+                            <div class="col-md-2">
+                                <img src="${item.image}" class="img-fluid rounded-start" alt="${item.name}">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">${item.name}</h5>
+                                    <p class="card-text">Đơn giá: ${item.price.toLocaleString()}đ</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <input type="number" class="form-control w-50 mx-auto" min="1" value="${item.quantity}" onchange="changeQuantity(${index}, this.value)">
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <p class="mb-0 fw-bold text-danger">${subtotal.toLocaleString()}đ</p>
+                            </div>
+                            <div class="col-md-1 text-center">
+                                <button class="btn btn-sm btn-danger" onclick="removeItem(${index})">&times;</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += row;
+            });
+
+            totalPriceEl.innerText = total.toLocaleString() + 'đ';
+        }
+
+        // Thay đổi số lượng sản phẩm
+        function changeQuantity(index, quantity) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart[index].quantity = parseInt(quantity);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+            updateCartCount();
+        }
+
+        // Xóa sản phẩm khỏi giỏ hàng
+        function removeItem(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+            updateCartCount();
+        }
+
+        // Khởi động khi trang được tải
+        document.addEventListener("DOMContentLoaded", () => {
+            updateCartCount();
+            loadCart();
+        });
+    </script>
+</body>
+
+</html>

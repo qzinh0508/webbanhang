@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi Tiết - Ví Vải 2 Mặt</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">QZINH</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gioithieu.html">Giới Thiệu</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Sản Phẩm</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="sanpham.html">Tất Cả Sản Phẩm</a></li>
+                            <li><a class="dropdown-item active" href="#">Chi Tiết Sản Phẩm</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <a href="giohang.html" class="btn position-relative me-3">
+                        <img src="../images/giohang.jpg" width="24" height="24" alt="Giỏ hàng">
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">0</span>
+                    </a>
+                    <a href="dangnhap.html" class="btn btn-outline-dark me-2">Đăng Nhập</a>
+                    <a href="dangky.html" class="btn btn-dark">Đăng Ký</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container py-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="../images/sp3.jpg" class="img-fluid rounded" alt="Ví vải 2 mặt">
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-3">Ví Vải 2 Mặt</h2>
+                <p class="text-muted">Mã sản phẩm: VV002</p>
+                <h4 class="text-danger mb-3">200.000đ</h4>
+                <p>
+                    Ví vải cao cấp, có thể sử dụng cả hai mặt, thiết kế trẻ trung năng động.
+                </p>
+                <ul>
+                    <li>Chất liệu: Vải canvas</li>
+                    <li>Màu sắc: Đa dạng</li>
+                    <li>Khóa kéo chắc chắn</li>
+                </ul>
+                <div class="mt-4">
+                    <label for="quantity" class="form-label">Số lượng:</label>
+                    <input type="number" id="quantity" class="form-control w-25 mb-3" value="1" min="1" />
+                    <button class="btn btn-dark" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4 text-center">
+        <div class="container">&copy; 2025 Quà Tặng Thủ Công | Designed by Nhóm Bạn</div>
+    </footer>
+
+    <script>
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cart-count').innerText = cart.reduce((sum, item) => sum + item.quantity, 0);
+        }
+
+        function addToCart() {
+            const quantity = parseInt(document.getElementById('quantity').value) || 1;
+
+            // Tự động lấy thông tin sản phẩm từ nội dung trang
+            const name = document.querySelector("h2").innerText;
+            const priceText = document.querySelector("h4.text-danger").innerText.replace(/[^\d]/g, "");
+            const price = parseInt(priceText);
+            const image = document.querySelector("img").src;
+            const id = document.querySelector("p.text-muted").innerText.split(":")[1].trim();
+
+            const item = {
+                id,
+                name,
+                price,
+                image,
+                quantity
+            };
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const index = cart.findIndex(p => p.id === item.id);
+            if (index !== -1) {
+                cart[index].quantity += quantity;
+            } else {
+                cart.push(item);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            alert("Đã thêm vào giỏ hàng!");
+        }
+
+        document.addEventListener("DOMContentLoaded", updateCartCount);
+    </script>
+</body>
+
+</html>
