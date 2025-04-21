@@ -1,0 +1,46 @@
+.navbar {
+    background-color: #1c1c1c !important;
+    border-bottom: none;
+}
+
+.navbar-nav .nav-link {
+    color: #eaeaea !important;
+    font-weight: 500;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover {
+    color: #fecd1a !important;
+}
+
+.navbar-brand {
+    color: #fecd1a !important;
+    font-weight: bold;
+}
+
+.navbar-toggler {
+    background-color: #fecd1a;
+}
+
+
+/* --- Nút --- */
+
+.btn-outline-dark {
+    border-color: #fecd1a;
+    color: #fecd1a;
+}
+
+.btn-outline-dark:hover {
+    background-color: #fecd1a;
+    color: #1c1c1c;
+}
+
+.btn-dark {
+    background-color: #fecd1a;
+    color: #1c1c1c;
+    border: none;
+}
+
+.btn-dark:hover {
+    background-color: #e5ba12;
+}

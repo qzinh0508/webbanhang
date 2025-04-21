@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang Chủ - Quà Tặng Thủ Công</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">QZINH</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Trang Chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gioithieu.html">Giới Thiệu</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="sanpham.html" id="productDropdown" role="button" data-bs-toggle="dropdown">
+              Sản Phẩm
+            </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="sanpham.html">Tất Cả Sản Phẩm</a></li>
+                            <li><a class="dropdown-item" href="chitietsanpham.html">Chi Tiết Sản Phẩm</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <a href="giohang.html" class="btn position-relative me-3">
+                        <img src="images/giohang.png" alt="Giỏ hàng" width="24" height="24">
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">
+                        0
+                      </span>
+                    </a>
+                    <a href="dangnhap.html" class="btn btn-outline-dark me-2">Đăng Nhập</a>
+                    <a href="dangky.html" class="btn btn-dark">Đăng Ký</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner -->
+    <div class="container-fluid p-0">
+        <img src="images/h1.jpg" class="img-fluid w-100" alt="Banner" />
+    </div>
+
+    <!-- Giới thiệu -->
+    <section class="container py-5">
+        <h2 class="text-center mb-4">Không Gian Kết Nối - Quà Tặng Thủ Công</h2>
+        <p class="text-center">
+            Chúng tôi mang đến những món quà mang đậm bản sắc văn hoá Việt, được làm thủ công bởi những đôi tay tài hoa và đầy tình cảm.
+        </p>
+    </section>
+
+    <!-- Sản phẩm nổi bật -->
+    <section class="container py-5">
+        <h3 class="mb-4">Sản phẩm nổi bật</h3>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="images/sp1.jpg" class="card-img-top" alt="Sản phẩm 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Dép cói -Thủ công-Vải in hoa chi tiết</h5>
+                        <p class="card-text">85.000đ</p>
+                        <a href="chitietsanpham1.html" class="btn btn-outline-dark">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Thêm sản phẩm khác tương tự -->
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="images/sp2.jpg" class="card-img-top" alt="Sản phẩm 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Đồng hồ rồng</h5>
+                        <p class="card-text">500.000đ</p>
+                        <a href="chitietsanpham2.html" class="btn btn-outline-dark">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="images/sp3.jpg" class="card-img-top" alt="Sản phẩm 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Ví Vải 2 Mặt</h5>
+                        <p class="card-text">200.000đ</p>
+                        <a href="chitietsanpham3.html" class="btn btn-outline-dark">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2025 Quà Tặng Thủ Công | Thiết kế bởi Nguyễn Quốc Vinh</p>
+        </div>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

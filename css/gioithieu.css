@@ -1,0 +1,50 @@
+/* Section Giới Thiệu */
+
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+
+/* Thêm một chút bóng cho hình ảnh */
+
+img.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+img.img-fluid1 {
+    width: 380px;
+    height: auto;
+}
+
+img.img-fluid2 {
+    width: 360px;
+    height: auto;
+}
+
+footer {
+    background-color: #343a40;
+}
+
+footer p {
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    color: white;
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+    section h3 {
+        font-size: 1.25rem;
+    }
+}
